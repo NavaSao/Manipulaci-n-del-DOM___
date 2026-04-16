@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación Avanzada del DOM - NewsBoard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob shape1"></div>
+        <div class="blob shape2"></div>
+        <div class="blob shape3"></div>
+    </div>
+    
+    <header class="glass-header">
+        <h1>NewsBoard <span class="badge">PRO</span></h1>
+        <p>Práctica de Manipulación del DOM y Storage</p>
+    </header>
+
+    <main class="container">
+        <!-- Parte A: Elementos iniciales -->
+        <section class="panel glass-panel" id="panel-principal">
+            <header class="panel-header">
+                <h2>Noticia Principal</h2>
+            </header>
+            
+            <article id="noticia-principal" class="tarjeta-noticia noticia-base">
+                <div class="imagen-container">
+                    <img id="imagen-noticia" src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=800" alt="Noticia Original">
+                    <span class="tag-flotante" id="tag-noticia">Actualidad</span>
+                </div>
+                <div class="contenido-noticia">
+                    <h3 id="titulo-noticia">El Futuro del Desarrollo Web está aquí</h3>
+                    <p id="texto-noticia">Explora las nuevas tendencias en diseño de interfaces utilizando Vanilla CSS y JavaScript moderno.</p>
+                </div>
+            </article>
+
+            <div class="controles-interactivos">
+                <button id="btn-cambiar-texto" class="btn primary">
+                    <span class="btn-icon">✏️</span> Cambiar Texto y Atributos
+                </button>
+                <button id="btn-toggle-clase" class="btn secondary">
+                    <span class="btn-icon">✨</span> Alternar Estilo Destacado
+                </button>
+            </div>
+        </section>
+
+        <!-- Parte B: Inserción Dinámica -->
+        <section class="panel glass-panel">
+            <header class="panel-header">
+                <h2>Feed Dinámico de Noticias</h2>
+            </header>
+            
+            <form id="formulario-noticia" class="formulario-dinamico">
+                <div class="input-group">
+                    <input type="text" id="input-titulo" placeholder="Ej. Nuevo framework lanzado" required autocomplete="off">
+                    <label for="input-titulo">Título de la Noticia</label>
+                </div>
+                
+                <div class="input-group">
+                    <select id="input-categoria" required>
+                        <option value="" disabled selected>Selecciona Categoría...</option>
+                        <option value="Tecnología">Tecnología</option>
+                        <option value="Negocios">Negocios</option>
+                        <option value="Diseño">Diseño</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn success w-full">
+                    <span class="btn-icon">➕</span> Publicar Noticia
+                </button>
+            </form>
+
+            <div class="divider"></div>
+
+            <ul id="lista" class="lista-noticias">
+                <!-- Noticias inyectadas dinámicamente aquí -->
+            </ul>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p>Desarrollado con ❤️ usando Vanilla JS</p>
+    </footer>
+
+    <!-- Templates ocultos para usarlos en el JS -->
+    <template id="template-noticia">
+        <li class="item-noticia">
+            <div class="item-content">
+                <h4 class="item-title"></h4>
+                <span class="item-category badge"></span>
+            </div>
+            <div class="item-actions">
+                <button type="button" class="btn-icon-circular btn-destacar" title="Destacar">⭐</button>
+                <button type="button" class="btn-icon-circular btn-eliminar btn-danger" title="Eliminar">🗑️</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
